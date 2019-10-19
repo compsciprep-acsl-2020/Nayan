@@ -1,3 +1,4 @@
+#NayanNathi
 #predata
 input = open("AgramText")
 inpu = input.read()
@@ -14,7 +15,7 @@ def Agram(inpu):
     oppo=inpu[:2]
     li=inpu[2:12]
     test1=[]#Finding same suites
-    test2=[]#cards possible for rule 2
+    test2=[]#deleteing suite id to create new list
     test3=[]#integer for rule two
 
     for i in li:
@@ -45,3 +46,4 @@ print(Agram(two))
 print(Agram(three))
 print(Agram(four))
 print(Agram(five))
+
