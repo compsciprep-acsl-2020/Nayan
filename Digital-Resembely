@@ -1,6 +1,10 @@
 import statistics
-#NayanNathi
-#codelines:36
+# Name: Nayan Nathi
+# Grade: 8th
+# Division: Junior-5 (Python)
+# Contest1 Year: 2018-2019
+# Team: Herndon Test Prep
+# Program:Junior Division: Digital-Resembely
 #predata
 input = open("Digit-Reassembly.text")
 inpu = input.read()
@@ -10,7 +14,7 @@ one=inpu[0]
 two=inpu[1]
 three=inpu[2]
 four=inpu[3]
-five=inpu[4]
+five=inpu[4]#end of predata
 #1
 print(len(one))
 #2
