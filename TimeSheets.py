@@ -39,8 +39,8 @@ def time(a):
         else:
             return(48+(e-4)*24)#if greater than 4 hours
 
-print(str(time(one))+".00")
-print(str(time(two))+".00")
-print(str(time(three))+".00")
-print(str(time(four))+"0")
-print(str(time(one)+time(two)+time(three)+time(four))+"0")
+print("$"+str(float(time(one)))+"0")
+print("$"+str(float(time(two)))+"0")
+print("$"+str(float(time(three)))+"0")
+print("$"+str(float(time(four)))+"0")
+print("$"+str(float(time(one)+time(two)+time(three)+time(four)))+"0")
