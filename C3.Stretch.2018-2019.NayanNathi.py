@@ -5,10 +5,14 @@
 # Team: Herndon Test Prep
 # Program:Junior Division: Stretch
 
+
+
 for x in (open("Stretchtxt","r")):
+    
     final = []
     lastcolumn = []
     final_check = []
+    
     r = int(x.split(" ")[0])
     c = int(x.split(" ")[1])
     s = int(x.split(" ")[2])
@@ -19,24 +23,31 @@ for x in (open("Stretchtxt","r")):
         blocked = x.split(" ")[4:]
     else:
         blocked = [0]
+        
     for i in range(0, r + 1):
         blocked.append((i * c) + 1)
+        
     for i in range((r * c) + 1, ((r * c) + 12)):
         blocked.append(i)
     blocked.remove(s)
+    
     for i in blocked:
         blocked[blocked.index(i)]=int(i)
+        
     i = 0
     while (i != r * c):
         i = i + c
         lastcolumn.append(i)
+        
     if s == 1:
         pass
     else:
         lastcolumn.remove(s - 1)
 
     while(not(lastnum in lastcolumn)):
+        
         lastnumset_A = lastnum
+        
         if not(lastnum+1 in blocked):
             lastnum=lastnum+1
             if not (lastnum + 1 in blocked):
@@ -50,7 +61,9 @@ for x in (open("Stretchtxt","r")):
                 lastnum = lastnumset_A
         else:
             lastnum=lastnumset_A
+            
         lastnumset_B=lastnum
+        
         if not(lastnum+1 in blocked):
             lastnum=lastnum+1
             if not (lastnum + c in blocked):
@@ -64,7 +77,9 @@ for x in (open("Stretchtxt","r")):
                 lastnum = lastnumset_B
         else:
             lastnum=lastnumset_B
+            
         lastnumset_C = lastnum
+        
         if not(lastnum+1 in blocked):
             lastnum=lastnum+1
             if not (lastnum + 1 in blocked):
