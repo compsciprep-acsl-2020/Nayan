@@ -5,101 +5,99 @@
 # Team: Herndon Test Prep
 # Program:Junior Division: Stretch
 
-
-
-for x in (open("Stretchtxt","r")):
+for Line in (open("Stretchtxt","r")):
     
-    final = []
+    Final = []
     lastcolumn = []
-    final_check = []
+    Final_check = []
     
-    r = int(x.split(" ")[0])
-    c = int(x.split(" ")[1])
-    s = int(x.split(" ")[2])
-    n = int(x.split(" ")[3])
-    lastnum = s-1
+    Row = int(Line.split(" ")[0])
+    Column= int(Line.split(" ")[1])
+    Start = int(Line.split(" ")[2])
+    NumberOfBlocked = int(Line.split(" ")[3])
+    LastNumber = Start - 1
     
-    if n > 0:
-        blocked = x.split(" ")[4:]
+    if NumberOfBlocked > 0:
+        blocked = Line.split(" ")[4:]
     else:
         blocked = [0]
         
-    for i in range(0, r + 1):
-        blocked.append((i * c) + 1)
+    for Number in range(0, Row + 1):
+        blocked.append((Number * Column) + 1)
         
-    for i in range((r * c) + 1, ((r * c) + 12)):
-        blocked.append(i)
-    blocked.remove(s)
+    for Number in range((Row * Column) + 1, ((Row * Column) + 12)):
+        blocked.append(Number)
+    blocked.remove(Start)
     
-    for i in blocked:
-        blocked[blocked.index(i)]=int(i)
+    for Number in blocked:
+        blocked[blocked.index(Number)]=int(Number)
+    Number = 0
+    
+    while (Number != Row * Column):
+        Number = Number + Column
+        lastcolumn.append(Number)
         
-    i = 0
-    while (i != r * c):
-        i = i + c
-        lastcolumn.append(i)
-        
-    if s == 1:
+    if Start == 1:
         pass
     else:
-        lastcolumn.remove(s - 1)
+        lastcolumn.remove(Start - 1)
 
-    while(not(lastnum in lastcolumn)):
+    while(not(LastNumber in lastcolumn)):
         
-        lastnumset_A = lastnum
+        LastNumberset_A = LastNumber
         
-        if not(lastnum+1 in blocked):
-            lastnum=lastnum+1
-            if not (lastnum + 1 in blocked):
-                lastnum = lastnum + 1
-                if not (lastnum + 1 in blocked):
-                    lastnum = lastnum + 1
-                    final.append("A")
+        if not(LastNumber + 1 in blocked):
+            LastNumber = LastNumber + 1
+            if not (LastNumber + 1 in blocked):
+                LastNumber = LastNumber + 1
+                if not (LastNumber + 1 in blocked):
+                    LastNumber = LastNumber + 1
+                    Final.append("A")
                 else:
-                    lastnum = lastnumset_A
+                    LastNumber = LastNumberset_A
             else:
-                lastnum = lastnumset_A
+                LastNumber = LastNumberset_A
         else:
-            lastnum=lastnumset_A
+            LastNumber = LastNumberset_A
             
-        lastnumset_B=lastnum
+        LastNumberset_B = LastNumber
         
-        if not(lastnum+1 in blocked):
-            lastnum=lastnum+1
-            if not (lastnum + c in blocked):
-                lastnum = lastnum + c
-                if not (lastnum + 1 in blocked):
-                    lastnum = lastnum + 1
-                    final.append("B")
+        if not(LastNumber + 1 in blocked):
+            LastNumber = LastNumber+1
+            if not (LastNumber + Column in blocked):
+                LastNumber = LastNumber + Column
+                if not (LastNumber + 1 in blocked):
+                    LastNumber = LastNumber + 1
+                    Final.append("B")
                 else:
-                    lastnum = lastnumset_B
+                    LastNumber = LastNumberset_B
             else:
-                lastnum = lastnumset_B
+                LastNumber = LastNumberset_B
         else:
-            lastnum=lastnumset_B
+            LastNumber=LastNumberset_B
             
-        lastnumset_C = lastnum
+        LastNumberset_C = LastNumber
         
-        if not(lastnum+1 in blocked):
-            lastnum=lastnum+1
-            if not (lastnum + 1 in blocked):
-                lastnum = lastnum + 1
-                if not (lastnum + c in blocked):
-                    lastnum = lastnum + c
-                    if not (lastnum + c in blocked):
-                        lastnum = lastnum + c
-                        final.append("C")
+        if not(LastNumber + 1 in blocked):
+            LastNumber = LastNumber+1
+            if not (LastNumber + 1 in blocked):
+                LastNumber = LastNumber + 1
+                if not (LastNumber + Column in blocked):
+                    LastNumber = LastNumber + Column
+                    if not (LastNumber + Column in blocked):
+                        LastNumber = LastNumber + Column
+                        Final.append("C")
                     else:
-                        lastnum = lastnumset_C
+                        LastNumber = LastNumberset_C
                         continue
                 else:
-                    lastnum = lastnumset_C
+                    LastNumber = LastNumberset_C
                     continue
             else:
-                lastnum = lastnumset_C
+                LastNumber = LastNumberset_C
                 continue
         else:
-            lastnum=lastnumset_C
+            LastNumber=LastNumberset_C
             continue
 
-    print ("".join(final))
+    print ("".join(Final))
